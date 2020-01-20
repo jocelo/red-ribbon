@@ -1,0 +1,23 @@
+$color: #f00;
+
+.single-item .bought {
+	color: $color;
+}
+
+.single-item.bought td {
+	text-decoration: line-through;
+}
+
+tr.single-item {
+	& td button.again {
+		display: none;
+	}
+
+	&.bought td button.buy {
+		display: none;
+	}
+	&.bought td button.again {
+		display: block;
+		text-decoration: none;
+	}
+}
