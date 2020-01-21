@@ -1,0 +1,12 @@
+{"rows":[
+	[
+		{"id": 1, "item": "Whole Milk", "requestor": "Nanis", "store": "Aldi", "done": false},
+		{"id": 2, "item": "Baby Spinack", "requestor": "Nanis", "store": "Aldi", "done": false},
+		{"id": 3, "item": "Fruit Jam", "requestor": "Nanis", "store": "Aldi", "done": false},
+		{"id": 4, "item": "Diapers", "requestor": "Nanis", "store": "Aldi", "done": false},
+		{"id": 5, "item": "Baby wipes", "requestor": "Nanis", "store": "Costco", "done": false},
+		{"id": 6, "item": "Roasted Chicken", "requestor": "Nanis", "store": "Costco", "done": false},
+		{"id": 7, "item": "Baby Formula", "requestor": "Nanis", "store": "Walmart", "done": false},
+		{"id": 8, "item": "Sandwhich bags", "requestor": "Nanis", "store": "DollarStore", "done": false}
+	]
+]}
