@@ -10,6 +10,7 @@ class NewItem extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			formError: false,
 			showForm: false,
 			itemName: '',
 			storeName: '',
@@ -39,6 +40,12 @@ class NewItem extends Component {
 		hideProgressBar: true
 	});
 
+	notifyError = (text) => toast.error(text, {
+		autoClose: 3000,
+		position: toast.POSITION.TOP_CENTER,
+		hideProgressBar: true
+	});
+
 	setNewValue(event, input) {
 		const newObj = {};
 		newObj[input] = event.target.value;		
@@ -46,6 +53,13 @@ class NewItem extends Component {
 	}
 
 	onSubmit() {
+		this.setState({formError: false});
+
+		if (this.state.itemName == '') {
+			this.notifyError('Missing product name');
+			this.setState({formError: true});
+			return;
+		}
 		this.setState({newItem: Object.assign(this.state.newItem, {item: this.state.itemName, store: this.state.storeName})});
 		this.props.liftState(this.state.newItem);
 		this.setState({ itemName: '', storeName: '' });
@@ -53,29 +67,21 @@ class NewItem extends Component {
 	}
 
 	onCancel = () => {
-		this.setState({showForm: false});
-	}
+		this.setState({formError: false});
 
-	showAdd = () => {
-		this.setState({showForm: true});
+		this.props.hideForm();
 	}
 
 	render() {
-		function Curtain(props) {
-			if (props.showForm) {
-				return <div className="curtain"></div>
-			}
-
-			return '';
-		}
 		return (
-			<div className="add-new">
-				<Curtain showForm={this.state.showForm}></Curtain>
-				<div className={this.state.showForm ? 'add-new-form' : 'add-new-form hidden'}>
+			<div className={this.props.showForm ? 'add-new' : 'add-new hidden'}>
+				<div className='add-new-form'>
 					<form>
 						<label className="form-label">
-							Item name
-							<input type="text" name="item" value={this.state.itemName} onChange={(event)=>this.setNewValue(event, 'itemName')} className="form-control" />
+							Item name { this.state.formError && 
+							<span className="error-message">(Required)</span>
+							}
+							<input type="text" name="item" className={this.state.formError ? 'form-control error' : 'form-control'} value={this.state.itemName} onChange={(event)=>this.setNewValue(event, 'itemName')} />
 						</label>
 						<label className="form-label">
 							Store

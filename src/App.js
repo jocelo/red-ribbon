@@ -40,13 +40,20 @@ class App extends Component {
     });
   }
 
+  showAddForm = () => {
+    this.setState({showForm: true});
+  }
+
+  hideAddForm = () => {
+    this.setState({showForm: false});
+  }
+
   render() {
     return (
       <div className='app'>
         <header>
           <div className='wrapper'>
             <h1>My Shopping List</h1>
-
           </div>
         </header>
         <div className='container'>
@@ -56,8 +63,8 @@ class App extends Component {
             </div>
           </section>
         </div>
-        <NewItem liftState={this.onLiftState}></NewItem>
-				<div className={this.state.showForm ? 'add-new-icon hidden' : 'add-new-icon'} onClick={this.showAdd}>
+        <NewItem liftState={this.onLiftState} hideForm={this.hideAddForm} showForm={this.state.showForm}></NewItem>
+				<div className={this.state.showForm ? 'add-new-icon hidden' : 'add-new-icon'} onClick={this.showAddForm}>
 					<FontAwesomeIcon icon={faPlusCircle} className="add-icon" />
 				</div>
       </div>
