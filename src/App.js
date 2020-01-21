@@ -4,6 +4,9 @@ import './App.scss'
 import Table from './components/table/Table'
 import NewItem from './components/add/NewItem'
 
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.min.css'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 
@@ -47,6 +50,29 @@ class App extends Component {
   hideAddForm = () => {
     this.setState({showForm: false});
   }
+  
+	notifySuccess = (text) => toast.success(text, {
+		autoClose: 3000,
+		position: toast.POSITION.TOP_CENTER,
+		hideProgressBar: true
+	});
+
+	notifyError = (text) => toast.error(text, {
+		autoClose: 3000,
+		position: toast.POSITION.TOP_CENTER,
+		hideProgressBar: true
+	});
+  
+  launchNotify = (type, msg) => {
+    console.log('launchNotify', type)
+    if (type === 'success') {
+      this.notifySuccess(msg);
+    } else if (type === 'error') {
+      this.notifyError(msg);
+    } else {
+      this.notifySuccess(msg);
+    }
+  }
 
   render() {
     return (
@@ -59,14 +85,20 @@ class App extends Component {
         <div className='container'>
           <section className='display-item'>
             <div className='wrapper'>
-              <Table data={this.state.items}></Table>
+              <Table data={this.state.items} launchNotify={this.launchNotify}></Table>
             </div>
           </section>
         </div>
-        <NewItem liftState={this.onLiftState} hideForm={this.hideAddForm} showForm={this.state.showForm}></NewItem>
+        <NewItem 
+          liftState={this.onLiftState} 
+          hideForm={this.hideAddForm} 
+          showForm={this.state.showForm}
+          launchNotify={this.launchNotify} ></NewItem>
 				<div className={this.state.showForm ? 'add-new-icon hidden' : 'add-new-icon'} onClick={this.showAddForm}>
 					<FontAwesomeIcon icon={faPlusCircle} className="add-icon" />
 				</div>
+        
+        <ToastContainer />
       </div>
     )
   }

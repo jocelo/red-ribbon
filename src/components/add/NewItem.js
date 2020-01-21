@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import './new-item.scss'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimesCircle, faSave } from '@fortawesome/free-solid-svg-icons'
@@ -34,18 +32,6 @@ class NewItem extends Component {
 		this.onCancel = this.onCancel.bind(this);
 	}
 
-	notify = (text) => toast.success(text, {
-		autoClose: 3000,
-		position: toast.POSITION.TOP_CENTER,
-		hideProgressBar: true
-	});
-
-	notifyError = (text) => toast.error(text, {
-		autoClose: 3000,
-		position: toast.POSITION.TOP_CENTER,
-		hideProgressBar: true
-	});
-
 	setNewValue(event, input) {
 		const newObj = {};
 		newObj[input] = event.target.value;		
@@ -56,14 +42,14 @@ class NewItem extends Component {
 		this.setState({formError: false});
 
 		if (this.state.itemName == '') {
-			this.notifyError('Missing product name');
+			this.props.launchNotify('error', 'Missing product name');
 			this.setState({formError: true});
 			return;
 		}
 		this.setState({newItem: Object.assign(this.state.newItem, {item: this.state.itemName, store: this.state.storeName})});
 		this.props.liftState(this.state.newItem);
 		this.setState({ itemName: '', storeName: '' });
-		this.notify('Product added');
+		this.props.launchNotify('success', 'Product added');
 	}
 
 	onCancel = () => {
@@ -91,7 +77,7 @@ class NewItem extends Component {
 								))}
 							</select>
 						</label>
-						<button type="button" className="btn submit-btn" onClick={this.onSubmit}>
+						<button type="button" className="btn btn-main" onClick={this.onSubmit}>
 							<FontAwesomeIcon icon={faSave} /> Save
 						</button>
 						<button type="button" className="btn cancel-btn" onClick={this.onCancel}>
@@ -99,8 +85,6 @@ class NewItem extends Component {
 						</button>
 					</form>
 				</div>
-
-				<ToastContainer />
 			</div>
 
 		)

@@ -7,6 +7,10 @@ class Table extends Component {
 		super(props);
 	}
 
+	launchNotify = (type, msg) => {
+		this.props.launchNotify(type, msg);
+	}
+
 	render() {
 		const tableHeader = (
 			<thead>
@@ -23,7 +27,7 @@ class Table extends Component {
 				{tableHeader}
 				<tbody>
 					{this.props.data.map((it, idx)=>(
-						<SingleItem key={idx} data={it}></SingleItem>
+						<SingleItem key={idx} data={it} launchNotify={this.launchNotify}></SingleItem>
 					))}
 				</tbody>
 			</table>

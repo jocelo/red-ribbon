@@ -8,6 +8,10 @@ $color: #f00;
 	text-decoration: line-through;
 }
 
+.single-item.bought td.no-decor {
+	text-decoration: none;
+}
+
 tr.single-item {
 	& td button.again {
 		display: none;
