@@ -1,18 +1,18 @@
 {
 	"data": [
-		{"id": 1, "item": "Whole Milk", "requestor": "Nanis", "store": "Aldi", "bought": false},
-		{"id": 2, "item": "Baby Spinack", "requestor": "Nanis", "store": "Aldi", "bought": false},
-		{"id": 3, "item": "Fruit Jam", "requestor": "Nanis", "store": "Aldi", "bought": false},
-		{"id": 4, "item": "Diapers", "requestor": "Nanis", "store": "Aldi", "bought": false},
-		{"id": 5, "item": "Baby wipes", "requestor": "Nanis", "store": "Costco", "bought": false},
-		{"id": 6, "item": "Roasted Chicken", "requestor": "Nanis", "store": "Costco", "bought": false},
-		{"id": 7, "item": "Baby Formula", "requestor": "Nanis", "store": "Walmart", "bought": false},
-		{"id": 8, "item": "Sandwhich bags", "requestor": "Nanis", "store": "DollarStore", "bought": false}
+		{"id": 10, "item": "Whole Milk", "requestor": "Nanis", "store": "Aldi", "bought": false},
+		{"id": 20, "item": "Baby Spinack", "requestor": "Nanis", "store": "Aldi", "bought": false},
+		{"id": 30, "item": "Fruit Jam", "requestor": "Nanis", "store": "Aldi", "bought": false},
+		{"id": 40, "item": "Diapers", "requestor": "Nanis", "store": "Aldi", "bought": false},
+		{"id": 50, "item": "Baby wipes", "requestor": "Nanis", "store": "Costco", "bought": false},
+		{"id": 60, "item": "Roasted Chicken", "requestor": "Nanis", "store": "Costco", "bought": false},
+		{"id": 70, "item": "Baby Formula", "requestor": "Nanis", "store": "Walmart", "bought": false},
+		{"id": 80, "item": "Sandwhich bags", "requestor": "Nanis", "store": "DollarStore", "bought": false}
 	],
 	"stores": [
-		{"id": 1, "name": "Aldi"},
-		{"id": 2, "name": "Costco"},
-		{"id": 3, "name": "DollarStore"},
-		{"id": 4, "name": "Walmart"}
+		{"id": 10, "name": "Aldi"},
+		{"id": 20, "name": "Costco"},
+		{"id": 30, "name": "DollarStore"},
+		{"id": 40, "name": "Walmart"}
 	]
 }

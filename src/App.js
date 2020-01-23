@@ -64,7 +64,6 @@ class App extends Component {
 	});
   
   launchNotify = (type, msg) => {
-    console.log('launchNotify', type)
     if (type === 'success') {
       this.notifySuccess(msg);
     } else if (type === 'error') {

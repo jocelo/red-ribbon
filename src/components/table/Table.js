@@ -1,13 +1,28 @@
 import React, { Component } from 'react'
 import './table.scss'
+
 import SingleItem from './SingleItem'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCookieBite } from '@fortawesome/free-solid-svg-icons';
 
 class Table extends Component {
+	constructor(props) {
+		super(props);
 
-	launchNotify = (type, msg) => {
+		this.launchNotify = this.launchNotify.bind(this);
+		this.persistUpdate = this.persistUpdate.bind(this);
+	}
+
+	componentDidMount() {
+		const dbRef = 'firebase';
+	}
+
+	launchNotify(type, msg) {
 		this.props.launchNotify(type, msg);
+	}
+
+	persistUpdate() {
+		console.log('from the parent');
 	}
 
 	render() {
@@ -33,7 +48,7 @@ class Table extends Component {
 						</tr>
 					}
 					{this.props.data.map((it, idx)=>(
-						<SingleItem key={idx} data={it} launchNotify={this.launchNotify}></SingleItem>
+						<SingleItem key={it.id} data={it} uid={idx} launchNotify={this.launchNotify} persistChange={this.persistUpdate}></SingleItem>
 					))}
 				</tbody>
 			</table>

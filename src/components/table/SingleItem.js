@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './single-item.scss';
+import firebase from '../../firebase'
 
 import 'react-toastify/dist/ReactToastify.min.css';
 
@@ -9,25 +10,37 @@ import { faCheckSquare } from '@fortawesome/free-solid-svg-icons'
 class SingleItem extends Component {
 	constructor(props) {
 		super(props);
-
+		
 		this.state = {
 			bought: false
 		};
+
+		this.buyAgain = this.buyAgain.bind(this);
+		this.markAsBought = this.markAsBought.bind(this);
 	}
 
-	markAsBought = () => {
+	persistChange(boughtOrNot) {
+		this.props.data.bought = boughtOrNot;
+		this.itemRef = firebase.database().ref('data/'+this.props.uid);
+		this.itemRef.set(this.props.data);
+	}
+
+	markAsBought() {
+		this.persistChange(true);
 		this.setState({bought: true});
+		this.props.launchNotify('success', '"'+this.props.data.item+'" bought!');
 	}
 
-	buyAgain = () => {
+	buyAgain() {
+		this.persistChange(false);
 		this.setState({bought: false});
 		this.props.launchNotify('success', '"'+this.props.data.item+'" re-added');
 	}
 
 	render() {
 		return (
-			<tr className={this.state.bought ? 'bought single-item' : 'single-item'}>
-				<td>{this.state.bought} {this.props.data.id}</td>
+			<tr className={this.props.data.bought ? 'bought single-item' : 'single-item'}>
+				<td>{this.props.data.bought} {this.props.data.id}</td>
 				<td>{this.props.data.item}</td>
 				<td>{this.props.data.store}</td>
 				<td className="no-decor"> 
