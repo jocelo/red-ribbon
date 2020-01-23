@@ -2,9 +2,18 @@
 	width: 50%;
 	margin: auto;
 
+	& th {
+		border-bottom: 2px solid #103D5D;
+	}
+
 	& tr.single-item td {
 		border-bottom: 1px solid rgba(127, 127, 127, 0.2);
     padding: 15px;
+	}
+
+	& td.missing-data {
+		text-align: center;
+		line-height: 40px;
 	}
 }
 

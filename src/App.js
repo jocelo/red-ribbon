@@ -15,16 +15,7 @@ class App extends Component {
     super(props);
 		this.state = {
       maxItem: 8,
-			items: [
-				{id: 1, item: 'Whole Milk', requestor: 'Nanis', store: 'Aldi', done: false},
-				{id: 2, item: 'Baby Spinack', requestor: 'Nanis', store: 'Aldi', done: false},
-				{id: 3, item: 'Fruit Jam', requestor: 'Nanis', store: 'Aldi', done: false},
-				{id: 4, item: 'Diapers', requestor: 'Nanis', store: 'Aldi', done: false},
-				{id: 5, item: 'Baby wipes', requestor: 'Nanis', store: 'Costco', done: false},
-				{id: 6, item: 'Roasted Chicken', requestor: 'Nanis', store: 'Costco', done: false},
-				{id: 7, item: 'Baby Formula', requestor: 'Nanis', store: 'Walmart', done: false},
-				{id: 8, item: 'Sandwhich bags', requestor: 'Nanis', store: 'DollarStore', done: false}
-			]
+			items: []
     }
     
     this.onLiftState = this.onLiftState.bind(this);
@@ -97,7 +88,7 @@ class App extends Component {
 				<div className={this.state.showForm ? 'add-new-icon hidden' : 'add-new-icon'} onClick={this.showAddForm}>
 					<FontAwesomeIcon icon={faPlusCircle} className="add-icon" />
 				</div>
-        
+
         <ToastContainer />
       </div>
     )
