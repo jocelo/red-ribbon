@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './App.scss'
+import firebase from './firebase'
 
 import Table from './components/table/Table'
 import NewItem from './components/add/NewItem'
@@ -19,6 +20,15 @@ class App extends Component {
     }
     
     this.onLiftState = this.onLiftState.bind(this);
+  }
+
+  componentDidMount() {
+    const itemsRef = firebase.database().ref('data');
+
+    itemsRef.on('value', snapshot=>{
+      this.setState({items:snapshot.val()});
+      //console.log('heres the data:', snapshot.val());
+    })
   }
 
   onLiftState(data) {

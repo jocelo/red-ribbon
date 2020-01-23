@@ -19,12 +19,7 @@ class NewItem extends Component {
 				store: '',
 				done: false
 			},
-			stores: [
-				{id: 1, name: 'Aldi'},
-				{id: 2, name: 'Costco'},
-				{id: 3, name: 'DollarStore'},
-				{id: 4, name: 'Walmart'}
-			]
+			stores: []
 		}
 
 		this.onSubmit = this.onSubmit.bind(this);
@@ -41,7 +36,7 @@ class NewItem extends Component {
 	onSubmit() {
 		this.setState({formError: false});
 
-		if (this.state.itemName == '') {
+		if (this.state.itemName === '') {
 			this.props.launchNotify('error', 'Missing product name');
 			this.setState({formError: true});
 			return;

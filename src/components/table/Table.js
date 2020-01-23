@@ -5,9 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCookieBite } from '@fortawesome/free-solid-svg-icons';
 
 class Table extends Component {
-	constructor(props) {
-		super(props);
-	}
 
 	launchNotify = (type, msg) => {
 		this.props.launchNotify(type, msg);
@@ -28,9 +25,9 @@ class Table extends Component {
 			<table className="table">
 				{tableHeader}
 				<tbody>
-					{this.props.data.length == 0 &&
+					{this.props.data.length === 0 &&
 						<tr>
-							<td colspan="3" className="missing-data"> 
+							<td colSpan="3" className="missing-data"> 
 								<FontAwesomeIcon icon={faCookieBite} /> Please add some data <FontAwesomeIcon icon={faCookieBite} />
 							</td>
 						</tr>

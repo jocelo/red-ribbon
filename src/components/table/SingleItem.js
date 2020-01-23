@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import './single-item.scss';
 
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee, faCheckSquare } from '@fortawesome/free-solid-svg-icons'
+import { faCheckSquare } from '@fortawesome/free-solid-svg-icons'
 
 class SingleItem extends Component {
 	constructor(props) {
