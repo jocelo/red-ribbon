@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+import { faPlusCircle, faReceipt } from '@fortawesome/free-solid-svg-icons'
 
 class App extends Component {
   constructor(props) {
@@ -27,7 +27,6 @@ class App extends Component {
 
     itemsRef.on('value', snapshot=>{
       this.setState({items:snapshot.val()});
-      //console.log('heres the data:', snapshot.val());
     })
   }
 
@@ -80,7 +79,7 @@ class App extends Component {
       <div className='app'>
         <header>
           <div className='wrapper'>
-            <h1>My Shopping List</h1>
+            <h1><FontAwesomeIcon icon={faReceipt} className="pad-right-15" size="lg" /> My Shopping List</h1>
           </div>
         </header>
         <div className='container'>

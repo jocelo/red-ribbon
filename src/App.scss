@@ -6,7 +6,7 @@ body {
 header {
   color: #fff;
   background-color: #103D5D;
-  padding: 33px 0 25px 15px;
+  padding: 20px 0;
 }
 
 header h1 {
@@ -17,6 +17,11 @@ header h1 {
   margin: 0;
   vertical-align: middle;
 }
+
+.pad-right-15 {
+  padding-right: 15px;
+}
+
 .app {
   padding-bottom: 50px;
 }
