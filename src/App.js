@@ -26,7 +26,9 @@ class App extends Component {
     const itemsRef = firebase.database().ref('data');
 
     itemsRef.on('value', snapshot=>{
-      this.setState({items:snapshot.val()});
+      console.log('something changed!!!');
+      console.log(snapshot.val().data);
+      this.setState({items:Object.values(snapshot.val().data).sort((a, b)=> a.bought-b.bought )});
     })
   }
 

@@ -21,8 +21,9 @@ class SingleItem extends Component {
 
 	persistChange(boughtOrNot) {
 		this.props.data.bought = boughtOrNot;
-		this.itemRef = firebase.database().ref('data/'+this.props.uid);
+		this.itemRef = firebase.database().ref('data/data/'+this.props.uid);
 		this.itemRef.set(this.props.data);
+		this.setState({bought: true});
 	}
 
 	markAsBought() {

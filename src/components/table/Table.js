@@ -10,19 +10,10 @@ class Table extends Component {
 		super(props);
 
 		this.launchNotify = this.launchNotify.bind(this);
-		this.persistUpdate = this.persistUpdate.bind(this);
-	}
-
-	componentDidMount() {
-		const dbRef = 'firebase';
 	}
 
 	launchNotify(type, msg) {
 		this.props.launchNotify(type, msg);
-	}
-
-	persistUpdate() {
-		console.log('from the parent');
 	}
 
 	render() {
@@ -48,7 +39,7 @@ class Table extends Component {
 						</tr>
 					}
 					{this.props.data.map((it, idx)=>(
-						<SingleItem key={it.id} data={it} uid={idx} launchNotify={this.launchNotify} persistChange={this.persistUpdate}></SingleItem>
+						<SingleItem key={it.id} data={it} uid={it.id} launchNotify={this.launchNotify} persistChange={this.persistUpdate}></SingleItem>
 					))}
 				</tbody>
 			</table>
