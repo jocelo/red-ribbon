@@ -14,21 +14,32 @@ import { faPlusCircle, faReceipt } from '@fortawesome/free-solid-svg-icons'
 class App extends Component {
   constructor(props) {
     super(props);
+    
+    this.itemsRef = '';
+    this.storesRef = '';
+
 		this.state = {
-      maxItem: 8,
-			items: []
+      maxItem: 1,
+      items: [],
+      stores: []
     }
     
     this.onLiftState = this.onLiftState.bind(this);
   }
 
   componentDidMount() {
-    const itemsRef = firebase.database().ref('data');
+    this.itemsRef = firebase.database().ref('items');
+    this.storesRef = firebase.database().ref('stores');
 
-    itemsRef.on('value', snapshot=>{
-      console.log('something changed!!!');
-      console.log(snapshot.val().data);
-      this.setState({items:Object.values(snapshot.val().data).sort((a, b)=> a.bought-b.bought )});
+    this.itemsRef.on('value', snapshot=>{
+      this.setState({
+        maxItem: Math.max( ...Object.keys(snapshot.val()).map(item=>Number(item))),
+        items:Object.values(snapshot.val()).sort((a, b)=> a.bought-b.bought )
+      });
+    })
+
+    this.storesRef.on('value', snapshot=>{
+      this.setState({stores: snapshot.val()});
     })
   }
 
@@ -36,6 +47,9 @@ class App extends Component {
     const dataCopy = Object.assign({}, data),
       newId = this.state.maxItem+1,
       newData = Object.assign(dataCopy, {id:newId});
+
+    const newITem = firebase.database().ref('items/'+(this.state.maxItem+1));
+    newITem.set(newData);
 
     this.setState(state=>{
       return {
@@ -91,6 +105,7 @@ class App extends Component {
           </section>
         </div>
         <NewItem 
+          stores={this.state.stores}
           liftState={this.onLiftState} 
           hideForm={this.hideAddForm} 
           showForm={this.state.showForm}

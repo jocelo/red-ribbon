@@ -11,13 +11,13 @@ class NewItem extends Component {
 			formError: false,
 			showForm: false,
 			itemName: '',
-			storeName: '',
+			storeName: 'Aldi',
 			newItem: {
 				id: '',
 				item: '',
 				requestor: 'Nanis',
-				store: '',
-				done: false
+				bought: false,
+				store: ''
 			},
 			stores: []
 		}
@@ -43,7 +43,7 @@ class NewItem extends Component {
 		}
 		this.setState({newItem: Object.assign(this.state.newItem, {item: this.state.itemName, store: this.state.storeName})});
 		this.props.liftState(this.state.newItem);
-		this.setState({ itemName: '', storeName: '' });
+		this.setState({ itemName: '' });
 		this.props.launchNotify('success', 'Product added');
 	}
 
@@ -66,8 +66,8 @@ class NewItem extends Component {
 						</label>
 						<label className="form-label">
 							Store
-							<select name="location" className="form-control" onChange={(event)=>this.setNewValue(event, 'storeName')} value={this.state.storeName}>
-								{this.state.stores.map(store=>(
+							<select name="location" className="form-control"  onChange={(event)=>this.setNewValue(event, 'storeName')} value={this.state.storeName}>
+								{this.props.stores.map((store, idx)=>(
 									<option key={store.id} value={store.name}>{store.name}</option>
 								))}
 							</select>
@@ -76,7 +76,7 @@ class NewItem extends Component {
 							<FontAwesomeIcon icon={faSave} /> Save
 						</button>
 						<button type="button" className="btn cancel-btn" onClick={this.onCancel}>
-							<FontAwesomeIcon icon={faTimesCircle} /> Cancel
+							<FontAwesomeIcon icon={faTimesCircle} /> Close
 						</button>
 					</form>
 				</div>
