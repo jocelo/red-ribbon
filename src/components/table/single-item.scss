@@ -17,6 +17,10 @@ tr.single-item {
 		display: none;
 	}
 
+	& td .mar-rig-10 {
+		margin-right: 10px;
+	}
+
 	&.bought td button.buy {
 		display: none;
 	}

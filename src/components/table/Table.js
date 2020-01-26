@@ -22,7 +22,6 @@ class Table extends Component {
 				<tr>
 					<th>item</th>
 					<th>store</th>
-					<th></th>
 				</tr>
 			</thead>
 		);

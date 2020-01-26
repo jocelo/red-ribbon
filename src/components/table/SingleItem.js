@@ -5,7 +5,7 @@ import firebase from '../../firebase'
 import 'react-toastify/dist/ReactToastify.min.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheckSquare } from '@fortawesome/free-solid-svg-icons'
+import { faCheckSquare, faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 
 class SingleItem extends Component {
 	constructor(props) {
@@ -38,10 +38,14 @@ class SingleItem extends Component {
 		this.props.launchNotify('success', '"'+this.props.data.item+'" re-added');
 	}
 
+	edit() {
+		
+	}
+
 	render() {
 		return (
 			<tr className={this.props.data.bought ? 'bought single-item' : 'single-item'}>
-				<td>{this.props.data.item}</td>
+				<td> <FontAwesomeIcon icon={faPencilAlt} size="lg" className="mar-rig-10" onClick={this.edit()} /> {this.props.data.item}</td>
 				<td>{this.props.data.store}</td>
 				<td className="no-decor"> 
 					<button onClick={this.markAsBought} className="btn btn-main buy"><FontAwesomeIcon icon={faCheckSquare} /> Buy</button>
