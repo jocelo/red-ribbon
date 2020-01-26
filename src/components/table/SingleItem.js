@@ -41,12 +41,11 @@ class SingleItem extends Component {
 	render() {
 		return (
 			<tr className={this.props.data.bought ? 'bought single-item' : 'single-item'}>
-				<td>{this.props.data.bought} {this.props.data.id}</td>
 				<td>{this.props.data.item}</td>
 				<td>{this.props.data.store}</td>
 				<td className="no-decor"> 
-					<button onClick={this.markAsBought} className="btn btn-main buy"><FontAwesomeIcon icon={faCheckSquare} /> Bought</button>
-					<button onClick={this.buyAgain} className="btn again">Buy Again</button>
+					<button onClick={this.markAsBought} className="btn btn-main buy"><FontAwesomeIcon icon={faCheckSquare} /> Buy</button>
+					<button onClick={this.buyAgain} className="btn again">Again</button>
 				</td>
 			</tr>
 		)

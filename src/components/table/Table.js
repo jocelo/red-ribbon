@@ -20,9 +20,9 @@ class Table extends Component {
 		const tableHeader = (
 			<thead>
 				<tr>
-					<th>id</th>
 					<th>item</th>
 					<th>store</th>
+					<th></th>
 				</tr>
 			</thead>
 		);
@@ -34,7 +34,7 @@ class Table extends Component {
 					{this.props.data.length === 0 &&
 						<tr>
 							<td colSpan="3" className="missing-data"> 
-								<FontAwesomeIcon icon={faCookieBite} /> Please add some data <FontAwesomeIcon icon={faCookieBite} />
+								<FontAwesomeIcon icon={faCookieBite} /> Please add some data
 							</td>
 						</tr>
 					}
