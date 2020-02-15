@@ -15,6 +15,21 @@
 		text-align: center;
 		line-height: 40px;
 	}
+	& input.field {
+		width: 100%;
+    border: 0;
+    border-bottom: 2px solid gray;
+		padding: 5px;
+		font-size: 17px;
+	}
+
+	& select.field {
+		font-size: 17px;
+		border: 2px solid lightgray;
+		padding: 5px;
+		background: transparent;
+		-webkit-appearance: none;
+	}
 }
 
 button.btn.again {

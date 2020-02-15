@@ -18,8 +18,7 @@ class NewItem extends Component {
 				requestor: 'Nanis',
 				bought: false,
 				store: ''
-			},
-			stores: []
+			}
 		}
 
 		this.onSubmit = this.onSubmit.bind(this);

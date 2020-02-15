@@ -16,6 +16,20 @@ class Table extends Component {
 		this.props.launchNotify(type, msg);
 	}
 
+	onAddNewItem() {
+		this.setState({formError: false});
+
+		if (this.state.itemName === '') {
+			this.props.launchNotify('error', 'Missing product name');
+			this.setState({formError: true});
+			return;
+		}
+		this.setState({newItem: Object.assign(this.state.newItem, {item: this.state.itemName, store: this.state.storeName})});
+		this.props.liftState(this.state.newItem);
+		this.setState({ itemName: '' });
+		this.props.launchNotify('success', 'Product added');
+	}
+
 	render() {
 		const tableHeader = (
 			<thead>
@@ -30,6 +44,19 @@ class Table extends Component {
 			<table className="table">
 				{tableHeader}
 				<tbody>
+					<tr className="single-item">
+						<td> <input type="text" name="productName" className="field" /> </td>
+						<td>
+							<select name="storeName" className="field">
+								{this.props.stores.map((store, idx)=>(
+									<option key={store.id} value={store.name}>{store.name}</option>
+								))}
+							</select> 
+						</td>
+						<td className="no-decor"> 
+							<button type="button" onClick={this.onAddNewItem} className="btn btn-main buy">Add</button>
+						</td>
+					</tr>
 					{this.props.data.length === 0 &&
 						<tr>
 							<td colSpan="3" className="missing-data"> 

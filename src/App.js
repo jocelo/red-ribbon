@@ -20,6 +20,7 @@ class App extends Component {
 
 		this.state = {
       maxItem: 1,
+      listTitle: '',
       items: [],
       stores: []
     }
@@ -94,13 +95,13 @@ class App extends Component {
       <div className='app'>
         <header>
           <div className='wrapper'>
-            <h1><FontAwesomeIcon icon={faReceipt} className="pad-right-15" size="lg" /> My Shopping List</h1>
+            <h1><FontAwesomeIcon icon={faReceipt} className="pad-right-15" size="lg" /> My Shopping List {this.state.listTitle}</h1>
           </div>
         </header>
         <div className='container'>
           <section className='display-item'>
             <div className='wrapper'>
-              <Table data={this.state.items} launchNotify={this.launchNotify}></Table>
+              <Table data={this.state.items} stores={this.state.stores} launchNotify={this.launchNotify}></Table>
             </div>
           </section>
         </div>
