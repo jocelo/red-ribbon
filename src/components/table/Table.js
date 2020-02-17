@@ -47,7 +47,7 @@ class Table extends Component {
 					{this.props.data.map((it, idx)=>(
 						<SingleItem key={it.id} data={it} uid={it.id} launchNotify={this.launchNotify} persistChange={this.persistUpdate}></SingleItem>
 					))}
-					<tr className="single-item">
+					<tr className="single-item add-more">
 						<td> <input type="text" name="productName" className="field" placeholder="What do you need ?" /> </td>
 						<td>
 							<select name="storeName" className="field">

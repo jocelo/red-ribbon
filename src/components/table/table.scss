@@ -16,13 +16,25 @@
 	}
 
 	& th {
-		border-bottom: 2px solid rgba(16, 61, 93, 0.5);
 		font-size: 25px;
 		font-family: Handlee;
+		position: relative;
+		padding-top: 15px;
+	}
+
+	& th:after {
+		content: '';
+    border-bottom: 2px solid rgba(16, 61, 93, 0.5);
+    height: 1px;
+    width: 80%;
+    bottom: 0px;
+    left: 10%;
+    position: absolute;
+    margin: auto;
 	}
 
 	& tr.single-item td {
-		border-bottom: 1px solid rgba(127, 127, 127, 0.2);
+		border-bottom: 1px solid rgba(127, 127, 127, 0.5);
     padding: 5px;
 	}
 
@@ -64,5 +76,17 @@
 
 	& button.btn-add-list {
 		color: cornflowerblue;
+	}
+
+	& tr.add-more {
+		& select {
+			font-family: 'Patrick Hand SC', cursive;
+			font-size: 20px;
+		}
+
+		& select option {
+			font-family: 'Patrick Hand SC', cursive;
+			font-size: 20px;
+		}
 	}
 }

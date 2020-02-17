@@ -14,7 +14,7 @@ class Header extends Component {
 		return (
 			<header>
 				<div className='wrapper'>
-					<h1 className="title"><FontAwesomeIcon icon={faReceipt} className="pad-right-15" size="lg" /> My Shopping List {this.props.title}</h1>
+					<h1 className="title"> My Shopping List {this.props.title}</h1>
 				</div>
 				<div className="float-right">
 					<FontAwesomeIcon icon={faBars} />

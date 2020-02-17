@@ -1,11 +1,20 @@
 header {
   color: #fff;
-  background-color: #103D5D;
-  padding: 20px 0;
+  background: rgb(115,45,45);
+  background: linear-gradient(90deg, rgba(115,45,45,1) 0%, rgba(237,0,0,1) 25%, rgba(237,0,0,1) 75%, rgba(115,45,45,1) 100%);
+  padding: 0;
+  position: fixed;
+  height: 40px;
+  width: 100%;
+  top: 10px;
+  left: 0;
+  z-index: 1;
+  text-align: center;
 }
 
 header h1.title {
-  font-size: 25px;
+  font-size: 28px;
+  line-height: 40px;
   font-weight: 600;
   letter-spacing: 0.3px;
   display: inline-block;
@@ -17,7 +26,8 @@ header h1.title {
 	display: inline;
 	position: absolute;
 	right: 15px;
-	top: 15px;
-	font-size: 35px;
+  top: 0;
+  line-height: 40px;
+	font-size: 30px;
 	cursor: pointer;
 }
