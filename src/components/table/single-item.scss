@@ -1,7 +1,19 @@
-$color: #f00;
-
 .single-item .bought {
-	color: $color;
+	color: rgb(139, 0, 0);
+}
+
+button {
+	font-family: 'Handlee', cursive;
+	background: transparent;
+	border: 0;
+}
+
+button.btn.again {
+	color: rgba(139, 0, 0, 0.5);
+}
+
+button.btn.btn-main {
+	color: forestgreen;
 }
 
 .single-item.bought td {
@@ -10,6 +22,21 @@ $color: #f00;
 
 .single-item.bought td.no-decor {
 	text-decoration: none;
+}
+
+.single-item td:nth-child(1),
+.single-item td:nth-child(2) {
+	font-size: 28px;
+}
+
+.single-item td svg {
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.single-item td button svg {
+	font-size: 30px;
+	cursor: pointer;
 }
 
 tr.single-item {
@@ -27,5 +54,9 @@ tr.single-item {
 	&.bought td button.again {
 		display: block;
 		text-decoration: none;
+	}
+
+	& td:nth-child(2) {
+		text-align: center;
 	}
 }

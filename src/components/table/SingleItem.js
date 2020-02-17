@@ -5,7 +5,7 @@ import firebase from '../../firebase'
 import 'react-toastify/dist/ReactToastify.min.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheckSquare, faPencilAlt } from '@fortawesome/free-solid-svg-icons'
+import { faPencilAlt, faMoneyBillWave, faUndo } from '@fortawesome/free-solid-svg-icons'
 
 class SingleItem extends Component {
 	constructor(props) {
@@ -48,8 +48,8 @@ class SingleItem extends Component {
 				<td> <FontAwesomeIcon icon={faPencilAlt} size="lg" className="mar-rig-10" onClick={this.edit()} /> {this.props.data.item}</td>
 				<td>{this.props.data.store}</td>
 				<td className="no-decor"> 
-					<button onClick={this.markAsBought} className="btn btn-main buy"><FontAwesomeIcon icon={faCheckSquare} /> Buy</button>
-					<button onClick={this.buyAgain} className="btn again">Again</button>
+					<button onClick={this.markAsBought} className="btn btn-main buy"><FontAwesomeIcon icon={faMoneyBillWave} /></button>
+					<button onClick={this.buyAgain} className="btn again"><FontAwesomeIcon icon={faUndo} /></button>
 				</td>
 			</tr>
 		)

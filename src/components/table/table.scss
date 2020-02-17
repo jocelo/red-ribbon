@@ -1,42 +1,68 @@
 .table {
-	width: 50%;
+	width: 60%;
 	margin: auto;
+	position: relative;
+	box-shadow: 5px 5px 20px gray;
+	
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		background-image: url(/assets/images/bg/napkin.png);
+	}
 
 	& th {
-		border-bottom: 2px solid #103D5D;
+		border-bottom: 2px solid rgba(16, 61, 93, 0.5);
+		font-size: 25px;
+		font-family: Handlee;
 	}
 
 	& tr.single-item td {
 		border-bottom: 1px solid rgba(127, 127, 127, 0.2);
-    padding: 15px;
+    padding: 5px;
+	}
+
+	& tr.single-item td:first-child {
+		padding-left: 15px;
 	}
 
 	& td.missing-data {
 		text-align: center;
 		line-height: 40px;
 	}
+	
 	& input.field {
 		width: 100%;
     border: 0;
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid cornflowerblue;
 		padding: 5px;
-		font-size: 17px;
+		font-size: 25px;
+		font-family: 'Patrick Hand SC', cursive;
+		background: transparent;
 	}
 
 	& select.field {
 		font-size: 17px;
-		border: 2px solid lightgray;
-		padding: 5px;
+		border: 2px solid cornflowerblue;
+		padding: 5px 30px 5px 5px;
 		background: transparent;
+		cursor: pointer;
 		-webkit-appearance: none;
 	}
-}
 
-button.btn.again {
-	background: rgba(255, 160, 122, 0.6);
-	color: darkred;
-}
+	& .select-icon {
+		position: relative;
+    left: -23px;
+    pointer-events: none;
+		cursor: pointer;
+		color: cornflowerblue;
+	}
 
-.icon {
-	color: orangered;
+	& button.btn-add-list {
+		color: cornflowerblue;
+	}
 }

@@ -1,0 +1,23 @@
+header {
+  color: #fff;
+  background-color: #103D5D;
+  padding: 20px 0;
+}
+
+header h1.title {
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.float-right {
+	display: inline;
+	position: absolute;
+	right: 15px;
+	top: 15px;
+	font-size: 35px;
+	cursor: pointer;
+}

@@ -3,7 +3,7 @@ import './table.scss'
 
 import SingleItem from './SingleItem'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCookieBite } from '@fortawesome/free-solid-svg-icons';
+import { faCaretSquareDown, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 
 class Table extends Component {
 	constructor(props) {
@@ -44,29 +44,23 @@ class Table extends Component {
 			<table className="table">
 				{tableHeader}
 				<tbody>
+					{this.props.data.map((it, idx)=>(
+						<SingleItem key={it.id} data={it} uid={it.id} launchNotify={this.launchNotify} persistChange={this.persistUpdate}></SingleItem>
+					))}
 					<tr className="single-item">
-						<td> <input type="text" name="productName" className="field" /> </td>
+						<td> <input type="text" name="productName" className="field" placeholder="What do you need ?" /> </td>
 						<td>
 							<select name="storeName" className="field">
 								{this.props.stores.map((store, idx)=>(
 									<option key={store.id} value={store.name}>{store.name}</option>
 								))}
-							</select> 
+							</select>
+							<span className="select-icon"><FontAwesomeIcon icon={faCaretSquareDown} /></span>
 						</td>
 						<td className="no-decor"> 
-							<button type="button" onClick={this.onAddNewItem} className="btn btn-main buy">Add</button>
+							<button type="button" onClick={this.onAddNewItem} className="btn btn-add-list"><FontAwesomeIcon icon={faPlusSquare} /></button>
 						</td>
 					</tr>
-					{this.props.data.length === 0 &&
-						<tr>
-							<td colSpan="3" className="missing-data"> 
-								<FontAwesomeIcon icon={faCookieBite} /> Please add some data
-							</td>
-						</tr>
-					}
-					{this.props.data.map((it, idx)=>(
-						<SingleItem key={it.id} data={it} uid={it.id} launchNotify={this.launchNotify} persistChange={this.persistUpdate}></SingleItem>
-					))}
 				</tbody>
 			</table>
 		)

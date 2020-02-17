@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './App.scss'
 import firebase from './firebase'
 
+import Header from './components/header/Header';
 import Table from './components/table/Table'
 import NewItem from './components/add/NewItem'
 
@@ -93,11 +94,7 @@ class App extends Component {
   render() {
     return (
       <div className='app'>
-        <header>
-          <div className='wrapper'>
-            <h1><FontAwesomeIcon icon={faReceipt} className="pad-right-15" size="lg" /> My Shopping List {this.state.listTitle}</h1>
-          </div>
-        </header>
+        <Header title={this.state.listTitle}></Header>
         <div className='container'>
           <section className='display-item'>
             <div className='wrapper'>
