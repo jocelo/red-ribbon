@@ -108,9 +108,7 @@ class App extends Component {
           hideForm={this.hideAddForm} 
           showForm={this.state.showForm}
           launchNotify={this.launchNotify} ></NewItem>
-				<div className={this.state.showForm ? 'add-new-icon hidden' : 'add-new-icon'} onClick={this.showAddForm}>
-					<FontAwesomeIcon icon={faPlusCircle} className="add-icon" />
-				</div>
+
 
         <ToastContainer />
       </div>

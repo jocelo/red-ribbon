@@ -10,6 +10,9 @@ class Table extends Component {
 		super(props);
 
 		this.launchNotify = this.launchNotify.bind(this);
+		this.state = {
+			inProgressItem: ''
+		};
 	}
 
 	launchNotify(type, msg) {
@@ -40,6 +43,8 @@ class Table extends Component {
 			</thead>
 		);
 
+		let {isItemBeignAdded} = this.state.inProgressItem;
+
 		return (
 			<table className="table">
 				{tableHeader}
@@ -48,9 +53,9 @@ class Table extends Component {
 						<SingleItem key={it.id} data={it} uid={it.id} launchNotify={this.launchNotify} persistChange={this.persistUpdate}></SingleItem>
 					))}
 					<tr className="single-item add-more">
-						<td> <input type="text" name="productName" className="field" placeholder="What do you need ?" /> </td>
+						<td> <input type="text" name="productName" className="field" placeholder=" and..." /> </td>
 						<td>
-							<select name="storeName" className="field">
+							<select name="storeName" className={`field ${this.state.inProgressItem ? '' : 'hidden'}`}>
 								{this.props.stores.map((store, idx)=>(
 									<option key={store.id} value={store.name}>{store.name}</option>
 								))}

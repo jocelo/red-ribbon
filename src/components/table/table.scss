@@ -89,4 +89,8 @@
 			font-size: 20px;
 		}
 	}
+
+	& .hidden {
+		opacity: 0;
+	}
 }
