@@ -8,15 +8,27 @@ import { faCaretSquareDown, faPlusSquare } from '@fortawesome/free-solid-svg-ico
 class Table extends Component {
 	constructor(props) {
 		super(props);
-
-		this.launchNotify = this.launchNotify.bind(this);
+		
 		this.state = {
 			inProgressItem: ''
 		};
+
+		this.launchNotify = this.launchNotify.bind(this);
+		this.addingNewItem = this.addingNewItem.bind(this);
 	}
 
 	launchNotify(type, msg) {
 		this.props.launchNotify(type, msg);
+	}
+
+	addingNewItem(e) {
+		console.log(e.target.value);
+		const addingValue = String(e.target.value).trim();
+		if (addingValue) {
+			this.setState({inProgressItem: true});
+		} else {
+			this.setState({inProgressItem: false});
+		}
 	}
 
 	onAddNewItem() {
@@ -53,17 +65,17 @@ class Table extends Component {
 						<SingleItem key={it.id} data={it} uid={it.id} launchNotify={this.launchNotify} persistChange={this.persistUpdate}></SingleItem>
 					))}
 					<tr className="single-item add-more">
-						<td> <input type="text" name="productName" className="field" placeholder=" and..." /> </td>
+						<td> <input type="text" name="productName" onChange={this.addingNewItem} className="field" placeholder=" and..." /> </td>
 						<td>
 							<select name="storeName" className={`field ${this.state.inProgressItem ? '' : 'hidden'}`}>
 								{this.props.stores.map((store, idx)=>(
 									<option key={store.id} value={store.name}>{store.name}</option>
 								))}
 							</select>
-							<span className="select-icon"><FontAwesomeIcon icon={faCaretSquareDown} /></span>
+							<span className={`select-icon ${this.state.inProgressItem ? '' : 'hidden'}`}><FontAwesomeIcon icon={faCaretSquareDown} /></span>
 						</td>
 						<td className="no-decor"> 
-							<button type="button" onClick={this.onAddNewItem} className="btn btn-add-list"><FontAwesomeIcon icon={faPlusSquare} /></button>
+							<button type="button" onClick={this.onAddNewItem} className={`btn btn-add-list ${this.state.inProgressItem ? '' : 'hidden'}`}><FontAwesomeIcon icon={faPlusSquare} /></button>
 						</td>
 					</tr>
 				</tbody>

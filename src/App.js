@@ -9,9 +9,6 @@ import NewItem from './components/add/NewItem'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusCircle, faReceipt } from '@fortawesome/free-solid-svg-icons'
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +18,7 @@ class App extends Component {
 
 		this.state = {
       maxItem: 1,
-      listTitle: '',
+      listTitle: 'Grocery List',
       items: [],
       stores: []
     }
@@ -108,7 +105,6 @@ class App extends Component {
           hideForm={this.hideAddForm} 
           showForm={this.state.showForm}
           launchNotify={this.launchNotify} ></NewItem>
-
 
         <ToastContainer />
       </div>
