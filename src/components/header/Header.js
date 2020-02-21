@@ -13,24 +13,26 @@ class Header extends Component {
 	render() {
 		let Title;
 		if (this.props.title) {
-			Title = <span> - {this.props.title} <FontAwesomeIcon icon={faCaretSquareDown} className="position-icon" /> </span>;
+			Title = <span> - <a>{this.props.title}</a> </span>;
 		} else {
 			Title = <span></span>;
 		}
 			
 		return (
-			<header>
+			<header class="rr-header">
 				<div className='wrapper'>
 					<h1 className="title"> My Shopping List {Title}</h1>
 				</div>
-				<div className='lists'>
-					<p>uno</p>
-					<p>dos</p>
-					<p>thress</p>
-				</div>
+
 				<div className="float-right">
 					<FontAwesomeIcon icon={faBars} />
 				</div>
+
+				<ul className='lists'>
+					<li>uno</li>
+					<li>dos</li>
+					<li><input  placeholder="Add new list" /> <button>Go</button></li>
+				</ul>
 			</header>
 		)
 	}
