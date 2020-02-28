@@ -5,6 +5,7 @@ import firebase from './firebase'
 import Header from './components/header/Header';
 import Table from './components/table/Table'
 import NewItem from './components/add/NewItem'
+import BuyAgain from './components/buyagain/BuyAgain';
 
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
@@ -105,7 +106,7 @@ class App extends Component {
           hideForm={this.hideAddForm} 
           showForm={this.state.showForm}
           launchNotify={this.launchNotify} ></NewItem>
-
+        <BuyAgain></BuyAgain>
         <ToastContainer />
       </div>
     )

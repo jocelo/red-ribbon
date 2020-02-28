@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faCaretSquareDown } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faCaretSquareDown, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 import './header.scss'
 
@@ -28,10 +28,11 @@ class Header extends Component {
 					<FontAwesomeIcon icon={faBars} />
 				</div>
 
-				<ul className='lists'>
+				<ul className="lists">
 					<li>uno</li>
 					<li>dos</li>
 					<li><input  placeholder="Add new list" /> <button>Go</button></li>
+					<span className="closeIcon"><FontAwesomeIcon icon={faTimesCircle} size="lg" /></span>
 				</ul>
 			</header>
 		)
